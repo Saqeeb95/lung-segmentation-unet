@@ -32,7 +32,7 @@ If you want to make the model deterministic and reproducible, uncomment the last
 
 In the third cell, specify the paths for the images (`reconPath`) and bitmasks (`bitmaskPath`). The `image_size` variable is used to centre crop all images to the same size. If the anatomy you want to segment is not in the centre of the images, you'll have to change this to something else.
 
-In the fourth cell, the dataset is split into training and validation sets with the ratio set by `valid_percent`. These sets are used to get the mean and standard deviation across the data, so that the images can be normalized to have mean = 0 and std = 1.
+In the fourth cell, the dataset is split into training and validation sets with the ratio set by `valid_percent`. These sets are used to get the mean and standard deviation across the data, so that the images can be normalized to have mean = 0 and std = 1. Note: there is a stats.data file in the data_prep folder. Delete this if you are using your own dataset, otherwise your data will be normalized according to the wrong mean and standard deviation.
 
 In the sixth cell, another instance of the dataset is split into training and validation sets once again, this time with the tt.Normalize transform which normalizes the mean and std according to the stats calculated in the previous two cells. This cell also allows you to specify which transformations you want to perform on both the training and validation data. Currently both sets just have normalization and the same image crop as in the third cell.
 
